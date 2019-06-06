@@ -25,7 +25,7 @@ public:
     virtual void clear() = 0;
 
     /// \brief Fill current group of parameters from Json (to implement in child class)
-    virtual bool fromJson ( const Json::Value &jsonObject ) = 0;
+    virtual bool fromJson ( const Json::Value &jsonValue ) = 0;
     /// \brief Return current group of parameters as Json (to implement in child class)
     virtual Json::Value toJson() const = 0;
 

@@ -16,6 +16,21 @@ ConfigBase::~ConfigBase() {
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
+void ConfigBase::_setUpInstance() {
+    if ( !isFileExist ( _instance->absoluteFilePath() ) ) {
+        std::cout << "Config file not exist. Try to create default" << std::endl;
+        _instance->saveConfig();
+        return;
+    }
+    std::cout << "Try to load config file.." << std::endl;
+    _instance->loadConfig();
+    if ( _instance->isConfigChanged() ) {
+        std::cout << "Config structure changed, need to override !";
+        _instance->saveConfig();
+    }
+}
+
+// ────────────────────────────────────────────────────────────────────────────────────────────── //
 bool ConfigBase::isFileExist ( const std::string &path ) {
     std::ifstream file ( path );
     if ( !file.is_open() ) {

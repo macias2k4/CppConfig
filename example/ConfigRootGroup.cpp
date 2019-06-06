@@ -18,18 +18,21 @@ ConfigRootGroup::~ConfigRootGroup() {
 void ConfigRootGroup::clear() {
     _serverHost.clear();
     _serverPort = 0;
+    _users.clear();
 }
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
-bool ConfigRootGroup::fromJson ( const Json::Value &jsonObject ) {
-    _serverHost = jsonObject["serverHost"].asString();
-    _serverPort = static_cast<int16_t> ( jsonObject["serverPort"].asInt() );
+bool ConfigRootGroup::fromJson ( const Json::Value &jsonValue ) {
+    _serverHost = jsonValue["serverHost"].asString();
+    _serverPort = static_cast<int16_t> ( jsonValue["serverPort"].asInt() );
+    _users.fromJson ( jsonValue["users"] );
     return true;
 }
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 Json::Value ConfigRootGroup::toJson() const {
-    Json::Value json;
+    auto json = Json::Value();
     json["serverHost"] = _serverHost;
     json["serverPort"] = _serverPort;
+    json["users"] = _users.toJson();
     return json;
 }
 
@@ -49,6 +52,11 @@ int16_t ConfigRootGroup::serverPort() const {
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 void ConfigRootGroup::setServerPort ( const int16_t &serverPort ) {
     _serverPort = serverPort;
+}
+
+// ────────────────────────────────────────────────────────────────────────────────────────────── //
+ConfigUsersGroup &ConfigRootGroup::users() {
+    return _users;
 }
 
 } // Example

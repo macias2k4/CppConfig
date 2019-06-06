@@ -48,7 +48,11 @@ protected:
 
     // ────────────────────────────────────────────────────────────────────────────────────────── //
     // methods
-    /// \brief Return reference for root group of parameters
+    /// \brief Setting up konfigurations in _instance object
+    /// <br>_instance need to be initialized, if not it will be crash
+    static void _setUpInstance();
+
+    /// \brief Return pointer for root group of parameters
     virtual ConfigGroupBase *_rootGroup() = 0;
     /// \brief Load configuration file, and return as string
     std::string _loadFileToStr();

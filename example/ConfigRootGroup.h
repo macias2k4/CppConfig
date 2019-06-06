@@ -4,6 +4,7 @@
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 // CppConfig
 #include <source/ConfigGroupBase.h>
+#include "ConfigUsersGroup.h"
 
 namespace Example {
 
@@ -18,7 +19,7 @@ public:
     // methods
     void clear() override;
 
-    bool fromJson ( const Json::Value &jsonObject ) override;
+    bool fromJson ( const Json::Value &jsonValue ) override;
     Json::Value toJson() const override;
 
     // - property
@@ -29,11 +30,15 @@ public:
     int16_t serverPort() const;
     void setServerPort ( const int16_t &serverPort );
 
+
+    ConfigUsersGroup &users();
+
 private:
     // ────────────────────────────────────────────────────────────────────────────────────────── //
     // property
     std::string _serverHost = "127.0.0.1";
     int16_t _serverPort = 0;
+    ConfigUsersGroup _users;
 
 };
 

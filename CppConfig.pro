@@ -6,6 +6,7 @@ CONFIG -= qt
 INCLUDEPATH += $$PWD/../jsoncpp/include
 DEPENDPATH += $$PWD/../jsoncpp/include
 
+CONFIG(debug, debug|release): LIBS += -L$$PWD/../jsoncpp/build/debug_lib -ljsoncpp
 CONFIG(release, debug|release): LIBS += -L$$PWD/../jsoncpp/build-shared -ljsoncpp
 
 include(source/source.pri)

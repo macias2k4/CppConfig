@@ -19,28 +19,18 @@ ConfigRootGroup &ConfigExample::root() {
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 ConfigExample &ConfigExample::instance() {
     if ( !_instance ) {
-        _initializeInstance();
+        _instance = new ConfigExample();
+        _setUpInstance();
     }
     return *dynamic_cast<ConfigExample *> ( _instance );
 }
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
-void ConfigExample::_initializeInstance() {
-    _instance = new ConfigExample();
-    if ( !isFileExist ( _instance->absoluteFilePath() ) ) {
-        std::cout << "Config file not exist. Try to create default" << std::endl;
-        _instance->saveConfig();
-        return;
-    }
-    std::cout << "Try to load config file.." << std::endl;
-    _instance->loadConfig();
-    if ( _instance->isConfigChanged() ) {
-        std::cout << "Conf changed !";
-        _instance->saveConfig();
-    }
-}
-// ────────────────────────────────────────────────────────────────────────────────────────────── //
 std::string ConfigExample::absoluteFilePath() const {
-    return "/media/macias/data/projects/build/C++/CppConfig/Release/config.json";
+#ifdef __linux__
+    return "/media/config.json";
+#else
+    return "C:/data/config.json";
+#endif
 }
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 CppConfig::ConfigGroupBase *ConfigExample::_rootGroup() {

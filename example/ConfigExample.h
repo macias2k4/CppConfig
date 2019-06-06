@@ -17,6 +17,7 @@ public:
     // methods
     /// \brief Return instance of configuration file
     static ConfigExample &instance();
+    /// \brief Absolute path to configuration file (including file name)
     std::string absoluteFilePath() const override;
 
     // - property
@@ -26,6 +27,7 @@ public:
 protected:
     // ────────────────────────────────────────────────────────────────────────────────────────── //
     // methods
+    /// \brief Return pointer for root group of parameters
     CppConfig::ConfigGroupBase *_rootGroup() override;
 
 private:
@@ -36,10 +38,6 @@ private:
     // ────────────────────────────────────────────────────────────────────────────────────────── //
     // property
     ConfigRootGroup _root;
-
-    // ────────────────────────────────────────────────────────────────────────────────────────── //
-    // methods
-    static void _initializeInstance();
 
 };
 
