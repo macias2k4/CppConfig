@@ -25,7 +25,7 @@ After download, compile and install of jsoncpp, we can use one of two way to bui
 + CMake - in future i want to add CMakeLists.txt file, to open this project not only in QMake
  (NOT READY YET)
 
-After project rn You will see output:
+After project run You will see output:
 ```
 Config file not exist. Try to create default
 
