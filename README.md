@@ -1,7 +1,7 @@
 # CppConfig
 This is a simple project that provides base classes to create configurations files for applications in C++
 
-## How it's work
+## How it work
 This project has two base classes, placed in **source** directory: 
 + **ConfigBase** -> base for application configuration class. This class provide functionality to:
   + create default config file if not exist
@@ -17,7 +17,7 @@ This project has two base classes, placed in **source** directory:
 ## Dependencies
 + jsoncpp -> CppConfig use great project (https://github.com/open-source-parsers/jsoncpp) for handle JSON file format
 
-## Hot to run it
+## How to run it
 After download, compile and install of jsoncpp, we can use one of two way to build and run CppConfig project.
 + QMake(QtCreator) - this project can be open, compiled i running using QtCreator and qmake. 
   Just open CppConfig.pro file in this IDE set build path and run: qmake, build and run.
