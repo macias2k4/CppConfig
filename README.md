@@ -1,5 +1,5 @@
 # CppConfig
-This is simple project for C++ application configuration file
+This is a simple project that provides base classes to create configurations for applications in C ++
 
 ## How it's work
 This project has two base classes, placed in **source** directory: 
