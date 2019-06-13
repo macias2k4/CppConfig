@@ -4,7 +4,7 @@
 
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 // Example
-#include <example/ConfigExample.h>
+#include "example/ConfigExample.h"
 
 using namespace std;
 

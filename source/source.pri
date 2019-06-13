@@ -1,3 +1,5 @@
+INCLUDEPATH += $$PWD
+
 HEADERS += \
     $$PWD/ConfigGroupBase.h \
     $$PWD/ConfigBase.h

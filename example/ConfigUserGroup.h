@@ -3,7 +3,7 @@
 
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 // CppConfig
-#include <source/ConfigGroupBase.h>
+#include "ConfigGroupBase.h"
 
 using namespace std;
 
