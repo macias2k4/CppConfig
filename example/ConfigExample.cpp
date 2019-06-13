@@ -19,10 +19,10 @@ ConfigRootGroup &ConfigExample::root() {
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 ConfigExample &ConfigExample::instance() {
     if ( !_instance ) {
-        _instance = new ConfigExample();
+        _instance = std::unique_ptr<CppConfig::ConfigBase> ( new ConfigExample() );
         _setUpInstance();
     }
-    return *dynamic_cast<ConfigExample *> ( _instance );
+    return *dynamic_cast<ConfigExample *> ( _instance.get() );
 }
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 std::string ConfigExample::absoluteFilePath() const {

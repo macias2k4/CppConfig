@@ -44,7 +44,7 @@ protected:
     // ────────────────────────────────────────────────────────────────────────────────────────── //
     // property
     /// \brief Configuration class singleton instance
-    static ConfigBase *_instance;
+    static std::unique_ptr<ConfigBase> _instance;
 
     // ────────────────────────────────────────────────────────────────────────────────────────── //
     // methods

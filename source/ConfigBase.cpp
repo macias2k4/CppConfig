@@ -2,16 +2,13 @@
 
 namespace CppConfig {
 
-ConfigBase *ConfigBase::_instance = nullptr;
+std::unique_ptr<ConfigBase> ConfigBase::_instance = nullptr;
 
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 ConfigBase::ConfigBase() {
 }
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
 ConfigBase::~ConfigBase() {
-    if ( _instance ) {
-        delete _instance;
-    }
 }
 
 // ────────────────────────────────────────────────────────────────────────────────────────────── //
